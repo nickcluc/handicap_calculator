@@ -16,7 +16,7 @@ describe Handicap do
   describe '#calculate' do
     it 'will not calculate a handicap with less than 5 scores' do
       allow(handicap).to receive(:rounds).and_return(build_list(:round, 4))
-      expect(handicap.calculate).to eq("You need to play #{5 - handicap.rounds.count} more rounds to calculate a handicap.")
+      expect(handicap.calculate).to eq("You need to play 1 more rounds to calculate a handicap.")
     end
 
     it 'calculates a handicap when there are more than 5 scores', focus: true do
