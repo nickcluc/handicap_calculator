@@ -2,16 +2,16 @@ class CsvParser
   require_relative '../initializer'
   require 'csv'
 
-  attr_accessor :round_rows, :file_path
+  attr_accessor :rounds, :file_path
 
   def initialize(file_path)
     @file_path = file_path
-    @round_rows = []
+    @rounds = []
   end
 
-  def process`
-    CSV.foreach(file_path, headers: true ) do |row|
-      round_rows << row
+  def process
+    CSV.foreach(file_path, headers: true) do |row|
+      rounds << row
     end
     self
   end

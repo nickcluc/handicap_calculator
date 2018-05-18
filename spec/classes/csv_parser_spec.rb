@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 describe CsvParser do
   let(:parser) { build :csv_parser }
@@ -6,7 +6,7 @@ describe CsvParser do
   it 'has a valid Factory' do
     # Tests #initialize as well (since its a PORO)
     expect(parser.file_path).to_not be_nil
-    expect(parser.round_rows).to be_empty
+    expect(parser.rounds).to be_empty
   end
 
   describe '#process' do
@@ -17,7 +17,7 @@ describe CsvParser do
     it 'processes the csv' do
       # stub the csv
       parser.process
-      expect(parser.round_rows).to_not be_empty
+      expect(parser.rounds).to_not be_empty
     end
 
     it 'returns itself' do
