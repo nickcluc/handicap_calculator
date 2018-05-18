@@ -43,6 +43,8 @@ class Handicap
     ( usable_differentials.inject(0){ |sum, number| sum + number } / usable_differentials.length * 0.96 ).round(2)
   end
 
+  private
+
   def usable_rounds
     rounds.sort_by{|round| round.date}.last(20)
   end
