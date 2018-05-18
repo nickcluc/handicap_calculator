@@ -25,9 +25,7 @@ class Handicap
   def initialize(file_path)
     @file_path = file_path
     @parser = CsvParser.new(file_path).process
-    @rounds = @parser.rounds.map do |row|
-      Round.new(row)
-    end
+    @rounds = @parser.rounds.map { |row| Round.new(row) }
   end
 
   def calculate
