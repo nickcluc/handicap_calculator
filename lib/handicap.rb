@@ -38,7 +38,7 @@ class Handicap
     usable_differentials = []
     diff_count = differentials.length
 
-    n = DIFF_HASH[diff_count]
+    n = DIFF_HASH[diff_count] rescue ArgumentError
     n.times{ usable_differentials << differentials.shift }
     ( usable_differentials.inject(0){ |sum, number| sum + number } / usable_differentials.length * 0.96 ).round(2)
   end

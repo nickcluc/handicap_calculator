@@ -5,7 +5,7 @@ describe Handicap do
 
   before do
     csv = CSV.new("DATE,SCORE,RATING,SLOPE\n05/08/15,95,70.3,116\n", headers:true)
-    CSV.stub(:foreach).with({ parser: { file_path: "test.csv" } }, headers: true).and_return(csv.read)
+    allow(CSV).to receive(:foreach).with({ parser: { file_path: "test.csv" } }, headers: true).and_return(csv.read)
   end
 
   it 'has a valid Factory' do
